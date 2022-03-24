@@ -24,6 +24,7 @@ const Login = () => {
         e.preventDefault();
 
         const user = await logIn(email, password);
+
         if(user.length > 0){
             //Move To next page
             console.log("Succesful login")

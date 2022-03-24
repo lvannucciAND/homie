@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Layout from "components/Layout";
 import RoomTitle from "components/RoomTitle";
 import AddButton from "components/AddButton";
 import RoomsList from "components/Rooms/RoomsList";
+import { getRoomsByUserID, getAllBoxes } from 'utilities/axios';
+
 import CreateRoomModal from "components/Rooms/CreateRoomModal";
+
+const mockUser = {
+  address: "10 tenant street",
+  created_at: "2022-03-23T00:00:00.000Z",
+  email: "lorenzo@and.com",
+  furnished: false,
+  id: 1,
+  move_date: "2022-10-09T23:00:00.000Z",
+  password: "123456",
+  postcode: "m4 654",
+  updated_at: "2022-03-23T00:00:00.000Z",
+};
 
 const Rooms = () => {
   const [open, setOpen] = useState(false);
@@ -13,29 +27,25 @@ const Rooms = () => {
   const [roomName, setRoomName] = useState("");
   const [roomRename, setRoomRename] = useState(null);
   const [modalTitle, setModalTitle] = useState('Create a new room');
-  const [rooms, setRooms] = useState([
-    {
-      room_ID: 1,
-      room_description: "Kitchen",
-      created_at: "",
-      updated_at: "",
-      box_count: 3,
-    },
-    {
-      room_ID: 2,
-      room_description: "Bedroom 1",
-      created_at: "",
-      updated_at: "",
-      box_count: 5,
-    },
-    {
-      room_ID: 3,
-      room_description: "Bedroom 2",
-      created_at: "",
-      updated_at: "",
-      box_count: 1,
-    },
-  ]);
+  const [isFetching, setFetching] = useState(null);
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setFetching(true);
+        const res = await getRoomsByUserID(mockUser.id);
+        setRooms(res);
+      } catch (error) {
+        console.log(error);
+        throw error;
+      } finally {
+        setFetching(false);
+      }
+    };
+
+    fetchData();
+  },[]);
 
   const handleChange = (e) => {
     setRoomName(e.target.value);
@@ -72,21 +82,25 @@ const Rooms = () => {
 
   return (
     <Layout>
-      <RoomTitle text="Rooms" button={<AddButton onClick={handleOpen} />} />
-      <CreateRoomModal
-        open={open}
-        roomName={roomName}
-        onSave={handleSave}
-        onClose={handleClose}
-        onChange={handleChange}
-        modalTitle={modalTitle}
-      />
-      <RoomsList
-        rooms={rooms}
-        setRooms={setRooms}
-        setRoomRename={setRoomRename}
-        openEditModal={handleOpenEditModal}
-      />
+      {rooms && rooms.length && (
+        <>
+          <RoomTitle text="Rooms" button={<AddButton onClick={handleOpen} />} />
+          <CreateRoomModal
+            open={open}
+            roomName={roomName}
+            onSave={handleSave}
+            onClose={handleClose}
+            onChange={handleChange}
+            modalTitle={modalTitle}
+          />
+          <RoomsList
+            rooms={rooms}
+            setRooms={setRooms}
+            setRoomRename={setRoomRename}
+            openEditModal={handleOpenEditModal}
+          />
+        </>
+      )}
     </Layout>
   );
 };
