@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Stack, TextField, Button, FormControl } from "@mui/material";
+import Helmet from "react-helmet";
+import { Stack, TextField, Button, Typography } from "@mui/material";
 import { Redirect } from "react-router-dom";
-import FormControlLabel from "@mui/material/FormControlLabel";
+import AppContainer from "components/AppContainer";
 import Radio from "@mui/material/Radio";
 import RoomTitle from "components/RoomTitle";
+import HomieIcon from "assets/HomieIcon";
+import FormText from "components/FormText";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -41,7 +44,7 @@ const Signup = () => {
     e.preventDefault();
 
     if (password !== password2) {
-      setError("Password are not matching");
+      setError("Passwords are not matching");
     } else if (email.length === 0 || password.length === 0) {
       console.log("error");
       setError("Please insert a valid email or password");
@@ -68,105 +71,151 @@ const Signup = () => {
     />
   ) : (
     <>
-      <RoomTitle> Register </RoomTitle>
-
-      <Stack
-        spacing={3}
-        alignItems="center"
-        justifyContent="center"
-        sx={{ marginBottom: "3em", p: 8 }}
-      >
-        <TextField
-          required
-          borderColor="blue"
-          id="outlined-basic"
-          name="email"
-          label="example@gmail.com"
-          variant="outlined"
-          sx={{ backgroundColor: "#3C3486", marginTop: "2em", color: "white" }}
-          InputLabelProps={{
-            sx: {
-              color: "white",
-            },
-          }}
-          inputProps={{
-            sx: {
-              color: "white",
-            },
-          }}
-          onChange={handleChange}
-        />
-
-        <TextField
-          required
-          id="outlined-basic"
-          name="password"
-          label="password"
-          variant="filled"
-          sx={{ backgroundColor: "#3C3486", color: "white" }}
-          InputLabelProps={{
-            sx: {
-              color: "white",
-            },
-          }}
-          inputProps={{
-            sx: {
-              color: "white",
-            },
-          }}
-          onChange={handleChange}
-        />
-
-        <TextField
-          required
-          borderColor="blue"
-          id="outlined-basic"
-          name="password2"
-          label="repeat"
-          variant="outlined"
-          sx={{ backgroundColor: "#3C3486", marginTop: "2em", color: "white" }}
-          InputLabelProps={{
-            sx: {
-              color: "white",
-            },
-          }}
-          inputProps={{
-            sx: {
-              color: "white",
-            },
-          }}
-          onChange={handleChange}
-        />
-        <h4>{error}</h4>
-        <FormControl>
-          <FormControlLabel
-            value="Agree with Terms and Conditions"
-            control={<Radio />}
-            label="Agree with the Terms and Conditions"
-          />
-        </FormControl>
-
-        <Button
-          size="large"
-          sx={{ bgcolor: "warning.main", color: "primary.contrastText" }}
-          onClick={handleClick}
+      <Helmet
+        bodyAttributes={{
+          style: "background-color : #3c3486",
+          marginTop: "2.5rem",
+          marginBottom: "2.5rem",
+        }}
+      />
+      <AppContainer>
+        <Stack
+          spacing={10}
+          justifyContent="center"
+          alignItems="center"
+          sx={{ margin: "6rem 2.5rem" }}
         >
-          Register
-        </Button>
-        <Button
-          style={{
-            marginTop: "20px",
-            paddingLeft: "50px",
-            paddingRight: "50px",
-          }}
-          variant="text"
-          sx={{ color: "white", fontWeight: "bold", bgcolor: "warning.main" }}
-          size="medium"
-          onClick={""}
-        >
-          Back to login
-        </Button>
-      </Stack>
+          <Stack sx={{ display: "-webkit-inline-box" }}>
+            <HomieIcon fill="#ed6c02" width="3.125rem" height="3.125rem" />
+            <Typography
+              noWrap
+              component="div"
+              sx={{
+                fontSize: "2.1875rem",
+                marginLeft: "0.3125rem",
+                color: "#fff",
+                fontWeight: "bold",
+              }}
+            >
+              Homîe
+            </Typography>
+          </Stack>
+
+          {/* <RoomTitle> Register </RoomTitle> */}
+
+          <Stack spacing={2} sx={{ alignItems: "center" }}>
+            <TextField
+              id="register_email"
+              name="email"
+              label="Email"
+              required
+              variant="filled"
+              sx={{
+                borderRadius: "0.3125rem",
+                width: "16.25rem",
+                bgcolor: "white",
+                color: "#3C3486",
+              }}
+              onChange={handleChange}
+            />
+
+            <TextField
+              required
+              id="register_password"
+              name="password"
+              label="Enter Password"
+              type="password"
+              variant="filled"
+              sx={{
+                borderRadius: "0.3125rem",
+                width: "16.25rem",
+                bgcolor: "white",
+                color: "#3C3486",
+              }}
+              onChange={handleChange}
+            />
+
+            <TextField
+              required
+              id="register_password2"
+              name="password2"
+              label="Re-enter Password"
+              type="password"
+              variant="filled"
+              sx={{
+                borderRadius: "0.3125rem",
+                width: "16.25rem",
+                bgcolor: "white",
+                color: "#3C3486",
+                "&:hover": {
+                  bgcolor: "#7677E56",
+                },
+              }}
+              onChange={handleChange}
+            />
+
+            <div
+              style={{
+                color: "#fff",
+                fontSize: "0.625rem",
+                margin: "1rem",
+                textTransform: "uppercase",
+                fontFamily: "Roboto",
+                letterSpacing: "0.0625rem",
+              }}
+            >
+              {error}
+            </div>
+
+            <FormText width="18.75rem">
+              <Radio sx={{ color: "#fff" }} /> Agree with the Terms and
+              Conditions
+            </FormText>
+
+            <Button
+              onClick={handleClick}
+              style={{
+                marginTop: "0.625rem",
+                width: "13.125rem",
+              }}
+              sx={{
+                width: "9.375rem",
+                marginTop: "0.625rem",
+                color: "white",
+                fontWeight: "bold",
+                bgcolor: "warning.main",
+                "&:hover": {
+                  bgcolor: "#7677E5",
+                },
+              }}
+              size="medium"
+            >
+              Register
+            </Button>
+
+            <Button
+              href="/#/"
+              style={{
+                marginTop: "0.625rem",
+                width: "13.125rem",
+              }}
+              sx={{
+                width: "9.375rem",
+                marginTop: "0.625rem",
+                color: "white",
+                fontWeight: "bold",
+                bgcolor: "warning.main",
+                "&:hover": {
+                  bgcolor: "#7677E5",
+                },
+              }}
+              size="medium"
+            >
+              Back to Login
+            </Button>
+          </Stack>
+        </Stack>
+      </AppContainer>
     </>
   );
 };

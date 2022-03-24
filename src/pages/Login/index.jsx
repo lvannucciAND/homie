@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import { Stack, TextField, Button, Typography } from "@mui/material";
 import { logIn } from "utilities/axios";
 import HomieIcon from "assets/HomieIcon";
+import FormText from "components/FormText";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -115,9 +116,7 @@ const Login = () => {
           >
             Login
           </Button>
-          <div style={{ color: "#fff", margin: "0px", fontSize: "1rem" }}>
-            New to Homie?
-          </div>
+          <FormText margin="0px">New to homie?</FormText>
           <Button
             href="/#/signup"
             style={{
@@ -131,7 +130,7 @@ const Login = () => {
               fontWeight: "bold",
               bgcolor: "warning.main",
               "&:hover": {
-                bgcolor: "#7677E56",
+                bgcolor: "#7677E5",
               },
             }}
             size="medium"
