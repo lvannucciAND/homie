@@ -25,7 +25,7 @@ const GridProfileItems = ({itemType, item}) => {
       }} >  
         <Grid item xs={2.5} alignItems='left' textAlign= 'center' vertAlign='center' sx={{
           padding: '2px 5px 2px',
-          fontSize: '16px',
+          fontSize: '12px',
           fontWeight:'bold'
         }}
          >
@@ -34,11 +34,11 @@ const GridProfileItems = ({itemType, item}) => {
         <Divider 
           orientation="vertical" flexItem >
         </Divider>
-        <Grid item xs alignItems='center' textAlign='left' sx={{fontSize:'16px',
+        <Grid item xs alignItems='center' textAlign='left' sx={{fontSize:'12px',
           padding: '2px 5px 2px'
         }}>
           &nbsp; {item}
-          <EditIcon alignItems='left' textAlign= 'center' vertAlign='center'> </EditIcon>
+          <EditIcon> </EditIcon>
         </Grid>
       </Grid>
   )
@@ -47,14 +47,19 @@ const GridProfileItems = ({itemType, item}) => {
 const Profile = () => {
   return (
     <Layout>
+      <Stack
+        justifyContent='center'
+        alignItems='center'
+      >
       <RoomTitle text="Profile" />
-      <Box
-
+      <Stack
+          
             sx={{
                 // width: 300,
                 backgroundColor: '#7677E5',
                 borderRadius: '20px',
                 padding: '40px 25px',
+                width:'300px'
             }} >
           <GridProfileItems itemType="Email" item=""></GridProfileItems>
           <GridProfileItems itemType="Password" item=""></GridProfileItems>
@@ -82,8 +87,8 @@ const Profile = () => {
          </Button>
          <div> <center>Terms and Conditions</center></div>
          </Stack>
-        </Box>
-
+        </Stack>
+      </Stack>
     </Layout>
   );
 };
