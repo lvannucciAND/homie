@@ -15,6 +15,7 @@ const Login = () => {
     const history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     const handleChange = (e)=>{
         const {name, value} = e.target;
@@ -30,12 +31,13 @@ const Login = () => {
 
         const user = await logIn(email, password);
         if(user.length > 0){
-                history.push('/actions'); 
-            //Move To next page
+            history.push('/actions'); 
             console.log("Succesful login")
         }
         else{
+            setError("Login Failed. Please insert a valid email or password")
             console.log("Login Failed")
+            
         }
     }
 
@@ -90,6 +92,8 @@ const Login = () => {
                     </form>
 
                 </Stack>
+
+                <h4>{error}</h4>
                 
                 <Button
                 style={{paddingLeft: "59px", paddingRight: "59px"}}
