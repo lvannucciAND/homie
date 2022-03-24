@@ -17,7 +17,6 @@ const List = ({
     onItemCheck,
     onItemDelete,
 }) => {
-
     return (
         <Stack>
             <Box
@@ -55,9 +54,9 @@ const List = ({
                                     <ListItem
                                         itemId={item.id}
                                         listId={listId}
-                                        itemName={item.name}
-                                        itemPrice={item.price}
-                                        isItemPaid={item.paid}
+                                        itemName={item.expense_description || ""}
+                                        itemPrice={item.expense_cost || 0}
+                                        isItemPaid={item.expense_paid}
                                         onItemPriceChange={onItemPriceChange}
                                         onItemCheck={onItemCheck}
                                         onItemDelete={onItemDelete}
