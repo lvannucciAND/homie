@@ -1,4 +1,4 @@
-import React, { useParams, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from 'components/Layout';
 import List from 'components/List/List';
 import Box from 'components/Boxes/Box';

@@ -5,11 +5,17 @@ import Title from 'components/Title';
 import { Stack, TextField, Button,  } from '@mui/material';
 import { logIn } from 'utilities/axios';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import Rooms from 'pages/Rooms';
+import Expenses from 'pages/Expenses';
+
+
 
 const Login = () => {
-
+    const history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
 
     const handleChange = (e)=>{
         const {name, value} = e.target;
@@ -25,10 +31,13 @@ const Login = () => {
 
         const user = await logIn(email, password);
         if(user.length > 0){
-            //Move To next page
+            history.push('/actions'); 
             console.log("Succesful login")
-        }else{
+        }
+        else{
+            setError("Login Failed. Please insert a valid email or password")
             console.log("Login Failed")
+            
         }
     }
 
@@ -83,6 +92,8 @@ const Login = () => {
                     </form>
 
                 </Stack>
+
+                <h4>{error}</h4>
                 
                 <Button
                 style={{paddingLeft: "59px", paddingRight: "59px"}}
