@@ -21,7 +21,8 @@ const ListItem = ({
     onItemCheck,
     onItemDelete,
 }) => {
-    const [price, setItemPrice] = useState(itemPrice);
+
+    const [price, setItemPrice] = useState(parseFloat(itemPrice));
 
     return (
         <Stack
@@ -58,7 +59,7 @@ const ListItem = ({
                             sx={{ color: '#7677E5', fontSize: '20px', padding: 0 }}
                         />
                         <Input 
-                            defaultValue={itemPrice.toFixed(2)} 
+                            defaultValue={price}
                             sx={{ fontSize: '14px', width: '45px', fontWeight: 'bold', color: '#3D3486' }} 
                             onChange={(e) => setItemPrice(e.target.value)}
                         />

@@ -26,22 +26,34 @@ export const signUp = async (email, password, moveInDate, postcode, address, fur
       }
 }
 
-export const getRoomsByUserID = async(id)=>{
+export const getAllBoxes = async(id)=>{
   try {
     const response = await axios({
-      url: `/api/rooms/${id}`,
+      url: `/api/boxes/${id}`,
       method: "GET",
     });
     return response.data;
   } catch (err) {
     throw err.response.data;
   }
-};
+}
 
-export const getAllBoxes = async(id)=>{
+export const getAllExpenses = async(userID)=>{
   try {
     const response = await axios({
-      url: `/api/boxes/${id}`,
+      url: `/api/expenses/${userID}`,
+      method: "GET",
+    });
+    return response.data;
+  } catch (err) {
+    throw err.response.data;
+  }
+}
+
+export const getRoomsByUserID = async(id)=>{
+  try {
+    const response = await axios({
+      url: `/api/rooms/${id}`,
       method: "GET",
     });
     return response.data;
