@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const RoomBox = ({ title, boxCount, onOptionsClick, onRoomClick }) => {
   return (
@@ -22,13 +23,13 @@ const RoomBox = ({ title, boxCount, onOptionsClick, onRoomClick }) => {
           }
         />
         <CardContent>
-          <Typography variant="button" align="left">
-            {title}
+          <Typography variant="button" align="left" sx={{display: "flex", justifyContent:"space-between"}}>
+            {title} <ArrowForwardIcon fontSize="small" sx={{color: "#fff"}}/>
           </Typography>
           <br />
-          <Typography variant="caption" align="left">
-            {boxCount} boxes
-          </Typography>
+          {boxCount ? (<Typography variant="caption" align="left">
+           {boxCount} boxes
+          </Typography>) : null}
         </CardContent>
       </Card>
     </Grid>
