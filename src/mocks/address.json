@@ -1,0 +1,83 @@
+[
+    {
+        "addressline1": "41-43 Great Peter Street",
+        "county": "Greater London",
+        "number": "41-43",
+        "organisation": "SW1 Dental Practice",
+        "postcode": "SW1 3LT",
+        "posttown": "London",
+        "premise": "41-43",
+        "street": "Great Peter Street",
+        "summaryline": "SW1 Dental Practice, 41-43 Great Peter Street, London, Greater London, SW1P 3LT"
+    },
+    {
+        "addressline1": "1 Cleveland Road",
+        "county": "Greater London",
+        "number": "1",
+        "postcode": "SW13 0AA",
+        "posttown": "London",
+        "premise": "1",
+        "street": "Cleveland Road",
+        "summaryline": "1 Cleveland Road, London, Greater London, SW13 0AA"
+    },
+    {
+        "addressline1": "18 Ellison Road",
+        "county": "Greater London",
+        "number": "18",
+        "postcode": "SW1 0AD",
+        "posttown": "London",
+        "premise": "18",
+        "street": "Ellison Road",
+        "summaryline": "18 Ellison Road, London, Greater London, SW13 0AD"
+    },
+    {
+        "addressline1": "63 Cleveland Gardens",
+        "county": "Greater London",
+        "number": "63",
+        "postcode": "SW1 0AE",
+        "posttown": "London",
+        "premise": "63",
+        "street": "Cleveland Gardens",
+        "summaryline": "63 Cleveland Gardens, London, Greater London, SW13 0AE"
+    },
+    {
+        "addressline1": "53 Cleveland Gardens",
+        "county": "Greater London",
+        "number": "53",
+        "postcode": "E1 0AE",
+        "posttown": "London",
+        "premise": "53",
+        "street": "Cleveland Gardens",
+        "summaryline": "53 Cleveland Gardens, London, Greater London, E1 0AE"
+    },
+    {
+        "addressline1": "43 Cleveland Gardens",
+        "county": "Greater London",
+        "number": "43",
+        "postcode": "N1 0AE",
+        "posttown": "London",
+        "premise": "43",
+        "street": "Cleveland Gardens",
+        "summaryline": "43 Cleveland Gardens, London, Greater London, N1 0AE"
+    },
+    {
+        "addressline1": "23 Cleveland Gardens",
+        "county": "Greater London",
+        "number": "23",
+        "postcode": "SE1 0AE",
+        "posttown": "London",
+        "premise": "23",
+        "street": "Cleveland Gardens",
+        "summaryline": "23 Cleveland Gardens, London, Greater London, SE1 0AE"
+    },
+    {
+        "addressline1": "13 Cleveland Gardens",
+        "county": "Greater London",
+        "number": "13",
+        "postcode": "E1 0AE",
+        "posttown": "London",
+        "premise": "13",
+        "street": "Cleveland Gardens",
+        "summaryline": "13 Cleveland Gardens, London, Greater London, E1 0AE"
+    }
+]
