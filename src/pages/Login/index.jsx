@@ -5,9 +5,14 @@ import Title from 'components/Title';
 import { Stack, TextField, Button,  } from '@mui/material';
 import { logIn } from 'utilities/axios';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import Rooms from 'pages/Rooms';
+import Expenses from 'pages/Expenses';
+
+
 
 const Login = () => {
-
+    const history = useHistory();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -25,9 +30,11 @@ const Login = () => {
 
         const user = await logIn(email, password);
         if(user.length > 0){
+                history.push('/actions'); 
             //Move To next page
             console.log("Succesful login")
-        }else{
+        }
+        else{
             console.log("Login Failed")
         }
     }
