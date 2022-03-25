@@ -82,7 +82,7 @@ const Rooms = () => {
 
   return (
     <Layout>
-      {rooms && rooms.length && (
+      {!!rooms && !!rooms.length && (
         <>
           <RoomTitle text="Rooms" button={<AddButton onClick={handleOpen} />} />
           <CreateRoomModal
