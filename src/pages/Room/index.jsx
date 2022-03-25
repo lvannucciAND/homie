@@ -125,7 +125,7 @@ const Room = () => {
                     spacing={1}
                 >
                     <Title 
-                        text={roomName} // TODO dynamic value
+                        text="Kitchen" // TODO dynamic value
                         size="36px"
                     />
          {!!itemsToBuy && !!itemsToBuy.length && (
