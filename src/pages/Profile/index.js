@@ -61,10 +61,10 @@ const Profile = () => {
                 padding: '40px 25px',
                 width:'300px'
             }} >
-          <GridProfileItems itemType="Email" item=""></GridProfileItems>
-          <GridProfileItems itemType="Password" item=""></GridProfileItems>
-          <GridProfileItems itemType="Address" item=""></GridProfileItems>
-          <GridProfileItems itemType="Move-Date" item=""></GridProfileItems>
+          <GridProfileItems itemType="Email" item="lorenzo@and.com"></GridProfileItems>
+          <GridProfileItems itemType="Password" item="******"></GridProfileItems>
+          <GridProfileItems itemType="Address" item="1 Cleveland Road, London, Greater London, SW13 0AA"></GridProfileItems>
+          <GridProfileItems itemType="Move-Date" item="10-10-2022"></GridProfileItems>
         <Stack>
           <Button
                 style={{paddingLeft: "59px", paddingRight: "59px"}}
